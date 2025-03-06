@@ -9,9 +9,6 @@
         <module name="movie-catalog-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="movie-catalog-service" target="11" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
