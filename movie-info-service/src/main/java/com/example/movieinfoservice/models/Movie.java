@@ -1,7 +1,12 @@
 package com.example.movieinfoservice.models;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "movie")
 public class Movie {
 
+    @Id
     private String movieId;
     private String name;
     private String description;
@@ -37,5 +42,14 @@ public class Movie {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "movieId='" + movieId + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
