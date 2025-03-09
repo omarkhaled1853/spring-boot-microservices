@@ -74,6 +74,15 @@
             <artifactId>protobuf-java</artifactId>
             <version>3.19.1</version> <!-- Match this version with the protoc version -->
         </dependency>
+        <dependency>
+    <groupId>com.google.protobuf</groupId>
+    <artifactId>protobuf-java-util</artifactId>
+    <version>3.19.1</version> <!-- Match the Protobuf version -->
+</dependency>
+        <dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+</dependency>
     </dependencies>
 
     <build>

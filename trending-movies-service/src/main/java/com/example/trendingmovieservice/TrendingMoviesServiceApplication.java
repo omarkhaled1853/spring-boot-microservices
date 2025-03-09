@@ -12,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-//@EnableHystrixDashboard
 
 public class TrendingMoviesServiceApplication {
 

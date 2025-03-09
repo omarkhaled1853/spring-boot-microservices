@@ -1,6 +1,6 @@
 package com.example.trendingmovieservice.services;
 
-import com.example.trendingmovieservice.models.CatalogItem;
+import com.example.trendingmovieservice.models.CatalogItemModel;
 import com.example.trendingmovieservice.models.Movie;
 import com.example.trendingmovieservice.models.Rating;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -33,13 +33,13 @@ public class MovieInfoService {
                     // Wait/Sleep for 5 seconds before sending another request to the failed service
                     @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "5000")
     })
-    public CatalogItem getCatalogItem(Rating rating) {
+    public CatalogItemModel getCatalogItem(Rating rating) {
         String movieDetailsUrl = "http://movie-info-service/movies/" + rating.getMovieId();
         Movie movie = this.restTemplate.getForObject(movieDetailsUrl, Movie.class);
-        return new CatalogItem(movie.getName(), movie.getDescription(), rating.getRating());
+        return new CatalogItemModel(movie.getName(), movie.getDescription(), rating.getRating());
     }
 
-    public CatalogItem getFallbackCatalogItem(Rating rating) {
-        return new CatalogItem("Movie name not found", "", rating.getRating());
+    public CatalogItemModel getFallbackCatalogItem(Rating rating) {
+        return new CatalogItemModel("Movie name not found", "", rating.getRating());
     }
 }
