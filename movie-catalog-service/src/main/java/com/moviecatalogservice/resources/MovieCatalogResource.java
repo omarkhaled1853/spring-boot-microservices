@@ -7,6 +7,7 @@ import com.moviecatalogservice.models.UserRating;
 import com.moviecatalogservice.services.MovieInfoService;
 import com.moviecatalogservice.services.UserRatingService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,4 +49,11 @@ public class MovieCatalogResource {
         List<Rating> ratings = userRatingService.getUserRating(userId).getRatings();
         return ratings.stream().map(movieInfoService::getCatalogItem).collect(Collectors.toList());
     }
+
+//    @GetMapping("/{movieId}")
+//    public CatalogItem getMovie(@PathVariable String movieId){
+//        System.out.println(movieId);
+//        Rating rating = new Rating(movieId, 4);
+//        return movieInfoService.getCatalogItem(rating);
+//    }
 }

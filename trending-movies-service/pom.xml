@@ -8,10 +8,10 @@
         <version>2.5.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com</groupId>
-    <artifactId>movie-catalog-service</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>ratings-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>movie-catalog-service</name>
+    <name>ratings-service</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
@@ -36,25 +36,18 @@
             <version>3.0.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
             <version>2.2.9.RELEASE</version>
         </dependency>
+        <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.30</version> <!-- or the latest version -->
+</dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
-            <version>2.2.9.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-                <dependency>
     <groupId>net.devh</groupId>
     <artifactId>grpc-spring-boot-starter</artifactId>
     <version>2.13.0.RELEASE</version>
@@ -69,29 +62,30 @@
     <artifactId>grpc-stub</artifactId>
     <version>1.42.1</version>
 </dependency>
-                <dependency>
+                        <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
             <version>3.19.1</version> <!-- Match this version with the protoc version -->
         </dependency>
+
     </dependencies>
 
-    <build>
-        <extensions>
+<build>
+    <extensions>
         <extension>
             <groupId>kr.motd.maven</groupId>
             <artifactId>os-maven-plugin</artifactId>
             <version>1.6.2</version>
         </extension>
     </extensions>
+    <plugins>
+        <!-- Spring Boot Maven Plugin -->
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
 
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-              <!-- Protobuf Maven Plugin -->
+        <!-- Protobuf Maven Plugin -->
         <plugin>
             <groupId>org.xolstice.maven.plugins</groupId>
             <artifactId>protobuf-maven-plugin</artifactId>
@@ -110,8 +104,8 @@
                 </execution>
             </executions>
         </plugin>
-        </plugins>
-    </build>
+    </plugins>
+</build>
 
     <repositories>
         <repository>

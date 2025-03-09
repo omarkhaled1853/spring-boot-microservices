@@ -1,0 +1,21 @@
+// trending.proto
+
+syntax = "proto3";
+
+package trendingmovie;
+
+message CatalogItem {
+    string name = 1;
+    string description = 2;
+    int32 rating = 3;
+}
+
+message GetTrendingMoviesRequest {}
+
+message GetTrendingMoviesResponse {
+    repeated CatalogItem catalogItems = 1;
+}
+
+service TrendingMovieService {
+    rpc GetTrendingMovies(GetTrendingMoviesRequest) returns (GetTrendingMoviesResponse);
+}

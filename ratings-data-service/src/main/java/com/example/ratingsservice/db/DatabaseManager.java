@@ -9,9 +9,9 @@ import java.util.List;
 
 @Service
 public class DatabaseManager {
-    private static final String URL = "jdbc:mysql://localhost:3306/ratings_db";
-    private static final String USER = "omar";
-    private static final String PASSWORD = "Omar@2003";
+    private static final String URL = "jdbc:mysql://localhost:3306/newdb";
+    private static final String USER = "root";
+    private static final String PASSWORD = "Engmido123mrs";
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
